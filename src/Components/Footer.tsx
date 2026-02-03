@@ -10,6 +10,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-logo">
         <img src="/public/icons/icon.png" alt="logo" />
+        <h1>SUN CO.</h1>
       </div>
       <div className="footer-copyright">
         <p>© 2023 dot.cards text task. All rights reserved</p>
