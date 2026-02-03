@@ -42,3 +42,47 @@
     }
   }
 }
+.footer {
+  position: absolute;
+  width: 100%;
+  background-color: #201b21;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .footer-logo {
+    gap: 9px;
+    display: flex;
+    align-items: center;
+    padding: 24px 162px;
+    img {
+      color: #a7c6ba;
+      width: 24px;
+      height: 24px;
+    }
+    h1 {
+      color: white;
+      font-size: 16px;
+    }
+  }
+  .footer-copyright {
+    color: #d9dbe1;
+    p {
+      width: 308px;
+      height: 24px;
+      font-size: 14px;
+    }
+  }
+  .footer-contact {
+    display: flex;
+    gap: 10px;
+    padding: 24px 162px;
+    a {
+      display: flex;
+      align-items: center;
+      color: white;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
