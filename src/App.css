@@ -99,6 +99,52 @@
     height: 427px;
     border-radius: 40px;
     margin-top: 32px;
+    display: flex;
+    align-items: center;
+    padding: 64px 53px;
+    .product-introduce {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      height: 100%;
+      h2 {
+        font-family: "DM Sans";
+        font-size: 48px;
+        line-height: 56px;
+        font-weight: bold;
+        color: #ec5e2a;
+      }
+      h3 {
+        font-size: 64px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      p {
+        color: #67696e;
+        font-size: 20px;
+      }
+      button {
+        gap: 10px;
+        padding: 20px 80px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 49px;
+      }
+    }
+    .product-image {
+      flex: 1;
+      img {
+        /* gap: 53px; */
+        width: 490px;
+        height: 321px;
+      }
+    }
   }
   .homepage-more {
     width: 1116px;
