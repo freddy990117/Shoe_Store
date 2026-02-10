@@ -92,13 +92,12 @@
   align-items: center;
   justify-self: center;
   flex-direction: column;
-  gap: 64px;
   .homepage-product {
     background-color: #eaeeef;
     width: 1116px;
     height: 427px;
+    margin: 32px 0;
     border-radius: 40px;
-    margin-top: 32px;
     display: flex;
     align-items: center;
     padding: 64px 53px;
@@ -149,6 +148,40 @@
   .homepage-more {
     width: 1116px;
     height: 470px;
-    background-color: #eaeeef; /* this background-color would delete*/
+    margin: 32px 0 56px 0;
+    .more-product {
+      display: flex;
+      flex-direction: column;
+      h2 {
+        white-space: nowrap;
+        width: 394px;
+        height: 48px;
+        font-size: 36px;
+      }
+      .product {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 32px;
+        .more-product {
+          img {
+            width: 261px;
+            height: 284px;
+            border-radius: 18px;
+          }
+        }
+        h3 {
+          font-size: 20px;
+        }
+        h4 {
+          color: #67696e;
+          font-size: 16px;
+        }
+        p {
+          font-size: 18px;
+        }
+      }
+    }
   }
 }
