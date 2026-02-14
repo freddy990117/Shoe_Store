@@ -12,7 +12,7 @@ const Homepage = () => {
             <button>Shop Now</button>
           </div>
           <div className="product-image">
-            <img src="./images/picture-1.svg" alt="shoes picture" />
+            <img src="/public/images/picture-1.svg" alt="shoes picture" />
           </div>
         </div>
         <div className="homepage-more">
@@ -20,25 +20,25 @@ const Homepage = () => {
             <h2>Explore our latest drops</h2>
             <div className="product">
               <div className="more-product">
-                <img src="/images/picture-2.png" alt="Nike Off-whi" />
+                <img src="/public/images/picture-2.png" alt="Nike Off-whi" />
                 <h3>Off-White</h3>
                 <h4>Out Of Office "Ooo" sneakers</h4>
                 <p>$775</p>
               </div>
               <div className="more-product">
-                <img src="/images/picture-3.png" alt="Nike shoes" />
+                <img src="/public/images/picture-3.png" alt="Nike shoes" />
                 <h3>Nike</h3>
                 <h4>Nike Air Force Premium</h4>
                 <p>$200</p>
               </div>
               <div className="more-product">
-                <img src="/images/picture-4.png" alt="Nike shoes" />
+                <img src="/public/images/picture-4.png" alt="Nike shoes" />
                 <h3>Nike</h3>
                 <h4>Nike Air Force Premium</h4>
                 <p>$98.23</p>
               </div>
               <div className="more-product">
-                <img src="/images/picture-5.png" alt="adidas shoes" />
+                <img src="/public/images/picture-5.png" alt="adidas shoes" />
                 <h3>adidas</h3>
                 <h4>DAILY 3.0 SHOES</h4>
                 <p>$98.99</p>

@@ -165,20 +165,16 @@
         width: 100%;
         margin-top: 32px;
         .more-product {
-          display: flex;
           img {
-            display: flex;
             width: 261px;
             height: 284px;
             border-radius: 18px;
           }
         }
         h3 {
-          margin-top: 18px;
           font-size: 20px;
         }
         h4 {
-          margin: 6px 0 14px 0;
           color: #67696e;
           font-size: 16px;
         }
