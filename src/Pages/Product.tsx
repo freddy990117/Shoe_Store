@@ -5,28 +5,38 @@ const Product = () => {
     <div className="product-container">
       <div className="product-gallery">
         <div className="product-image">
-          <img src="" alt="product-intro" />
-          <button>Left</button>
-          <button>Right</button>
+          <button className="left-btn">{"<"}</button>
+          <button className="right-btn">{">"}</button>
+          <img src="/images/picture-2.png" alt="product-intro" />
+          <div className="more-picture">
+            <img src="/images/picture-3.png" alt="" />
+            <img src="/images/picture-4.png" alt="" />
+            <img src="/images/picture-5.png" alt="" />
+          </div>
           {/* You can put more picture to click over here. */}
         </div>
-        <div className="prodduct-info">
-          <h3>shoe catalog</h3>
-          <h4>shoe des</h4>
-          <p>price</p>
-          <div className="product-lan">{/* border div */}</div>
-          <h5>Quanity</h5>
-          <div className="product-number">
-            <button>-</button>
-            <span>{/* click button would be changed */}</span>
-            <button>+</button>
+        <div className="product-info">
+          <div className="information">
+            <h3>shoe catalog</h3>
+            <h4>shoe descri</h4>
+            <p>price</p>
           </div>
-          <button>Add to Cart</button>
+          <div className="decide">
+            <h5>Quanity</h5>
+            <div className="product-number">
+              <button>-</button>
+              <span>1{/* click button would be changed */}</span>
+              <button>+</button>
+            </div>
+            <div className="cart-btn">
+              <button>Add to Cart</button>
+            </div>
+          </div>
         </div>
       </div>
       <div className="product-description">
         <h1>Description</h1>
-        <div className="">{/* Border over here */}</div>
+        <div className=""></div>
       </div>
     </div>
   );
