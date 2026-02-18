@@ -36,7 +36,29 @@ const Product = () => {
       </div>
       <div className="product-description">
         <h1>Description</h1>
-        <div className=""></div>
+        <div className="product-lan"></div>
+        <span>
+          1.
+          <br />
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore atque
+          nisi deleniti dolorum quasi nulla, cupiditate quas magni. Facilis
+          mollitia quibusdam nemo doloribus provident blanditiis optio
+          laudantium, quod corrupti sint? <br />
+          <br />
+          2.
+          <br />
+          Lorem ipsum dolor sit, amet cnsectetur adipisicing elit. Dolore atque
+          nisi deleniti dolorum quasi nulla, cupiditate quas magni. Facilis
+          mollitia quibusdam nemo doloribus provident blanditiis optio
+          laudantium, quod corrupti sint? 3.Lorem ipsum dolor sit, amet
+          consectetur adipisicing elit. <br />
+          <br />
+          3.
+          <br />
+          Dolore atque nisi deleniti dolorum quasi nulla, cupiditate quas magni.
+          Facilis mollitia quibusdam nemo doloribus provident blanditiis optio
+          laudantium, quod corrupti sint?
+        </span>
       </div>
     </div>
   );
