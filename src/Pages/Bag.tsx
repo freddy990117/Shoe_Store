@@ -5,22 +5,58 @@ const Bag = () => {
     <div className="bag-container">
       <div className="shoe-bag">
         <h1>Your Bag</h1>
-        <div className="shoe-info">
-          <div className="shoe-img">
-            <img src="/images/picture-4.png" alt="Nike shoes" />
-          </div>
-          <div className="shoe-des">
-            <h3>Nike</h3>
-            <h4>Nike Air Force Premium</h4>
-            <div className="shoe-decide">
-              {/* this div would be rename ! */}
+        <div className="shoe-decide">
+          <div className="shoe-info">
+            <div className="shoe-img">
+              <img src="/images/picture-4.png" alt="Nike shoes" />
+            </div>
+            <div className="shoe-des">
+              <div className="shoe-catalog">
+                <h3>Nike</h3>
+                <h4>Nike Air Force Premium</h4>
+              </div>
+              <div className="shoe-btn">
+                <div className="shoe-num">
+                  <button>-</button>
+                  <span>1{/* click button would be changed */}</span>
+                  <button>+</button>
+                </div>
+                <button className="remove-btn">Remove</button>
+              </div>
+            </div>
+            <div className="shoe-price">
+              <p>$98.23</p>
             </div>
           </div>
-          <div className="shoe price">
-            <p>$98.23</p>
+          <div className="shoe-lan" />
+        </div>
+        <div className="shoe-decide">
+          <div className="shoe-info">
+            <div className="shoe-img">
+              <img src="/images/picture-4.png" alt="Nike shoes" />
+            </div>
+            <div className="shoe-des">
+              <div className="shoe-catalog">
+                <h3>Nike</h3>
+                <h4>Nike Air Force Premium</h4>
+              </div>
+              <div className="shoe-btn">
+                <div className="shoe-num">
+                  <button>-</button>
+                  <span>1{/* click button would be changed */}</span>
+                  <button>+</button>
+                </div>
+                <button className="remove-btn">Remove</button>
+              </div>
+            </div>
+            <div className="shoe-price">
+              <p>$98.23</p>
+            </div>
           </div>
+          <div className="shoe-lan" />
         </div>
       </div>
+
       <div className="bag-summary"></div>
     </div>
   );
