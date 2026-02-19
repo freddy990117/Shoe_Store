@@ -44,8 +44,9 @@
 }
 .footer {
   position: absolute;
-  width: 100%;
   background-color: #201b21;
+  margin-top: auto;
+  width: 100%;
   height: 72px;
   display: flex;
   align-items: center;
@@ -190,17 +191,82 @@
   }
 }
 .bag-container {
-  background-color: gray;
-  padding: 32px 162px 0 162px;
+  padding: 32px 74px 0 74px;
+  min-height: 90vh;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 74px;
   .shoe-bag {
-    height: 509px;
-    width: 582px;
-    background-color: #eaeeef;
+    width: 40%;
+    h1 {
+      margin-bottom: 28px;
+    }
+    .shoe-info {
+      display: flex;
+      align-items: start;
+      height: 162px;
+      .shoe-img {
+        img {
+          width: 165px;
+          height: 166px;
+        }
+      }
+      .shoe-des {
+        margin-left: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        h4 {
+          margin-top: 6px;
+        }
+      }
+      .shoe-btn {
+        display: flex;
+        align-items: center;
+        .shoe-num {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #e9ebee;
+          gap: 16px;
+          height: 100%;
+          padding: 12px 0;
+          border-radius: 10px;
+          button {
+            width: 24px;
+            font-weight: bolder;
+            height: 24px;
+            border: none;
+            background-color: white;
+            cursor: pointer;
+          }
+        }
+        .remove-btn {
+          cursor: pointer;
+          width: 63px;
+          height: 24px;
+          background-color: white;
+          color: #67696e;
+          border: none;
+          font-weight: bolder;
+          text-decoration: none;
+          border-bottom: 1px solid #67696e;
+          margin-left: 30px;
+          border-bottom-width: 50%;
+        }
+      }
+      .shoe-price {
+        margin-left: auto;
+      }
+    }
+    .shoe-lan {
+      border: 1px solid black;
+      opacity: 0.1;
+      margin: 24px 0;
+    }
   }
   .bag-summary {
     height: 509px;
