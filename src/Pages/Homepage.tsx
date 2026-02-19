@@ -9,7 +9,9 @@ const Homepage = () => {
             <h2>25% OFF</h2>
             <h3>Summer Sale</h3>
             <p>Discover our summer styles with discount</p>
-            <button>Shop Now</button>
+            <Link to={`/product`}>
+              <button>Shop Now</button>
+            </Link>
           </div>
           <div className="product-image">
             <img src="./images/picture-1.svg" alt="shoes picture" />
@@ -21,7 +23,7 @@ const Homepage = () => {
             <div className="product">
               <Link to={`/product`}>
                 <div className="more-product">
-                  <img src="/images/picture-2.png" alt="Nike Off-whi" />
+                  <img src="/images/picture-2.png" alt="Nike Off-white" />
                   <h3>Off-White</h3>
                   <h4>Out Of Office "Ooo" sneakers</h4>
                   <p>$775</p>

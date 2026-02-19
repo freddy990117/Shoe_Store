@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,7 +11,9 @@ const Header = () => {
       <div className="header-cart">
         <div className="header-cart-info">
           <img src="/icons/shope-bag.png" alt="shop bag image" />
-          <button>View Cart</button>
+          <Link to={`/bag`}>
+            <button>View Cart</button>
+          </Link>
         </div>
       </div>
     </div>
