@@ -25,7 +25,7 @@ const Homepage = () => {
             <div className="product">
               <div className="product-catalog">
                 {productList.map((item) => (
-                  <Link key={item.id} to={`/product/${item.shoes}`}>
+                  <Link key={item.id} to={`/product/${item.id}`}>
                     <img src={`${item.imageURL}`} alt={`${item.title}`} />
                     <h3>{`${item.shoes}`}</h3>
                     <h4>{`${item.catalog}`}</h4>
