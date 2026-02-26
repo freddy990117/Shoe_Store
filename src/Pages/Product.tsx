@@ -1,13 +1,21 @@
-import React from "react";
+import { useParams } from "react-router-dom";
+import { useProducts } from "../Context/ProductContext";
 
 const Product = () => {
+  const productList = useProducts();
+  // 讀取 Router 中的 id 值
+  const { id } = useParams<{ id: string }>();
+  // find id by clicked
+  const correctProduct = productList.find((item) => item.id === Number(id));
+  if (!productList) return <div>Product is delivering</div>;
+
   return (
     <div className="product-container">
       <div className="product-gallery">
         <div className="product-image">
           <button className="left-btn">{"<"}</button>
           <button className="right-btn">{">"}</button>
-          <img src="/images/picture-2.png" alt="product-intro" />
+          <img src={`${correctProduct?.imageURL}`} alt="product-intro" />
           <div className="more-picture">
             <img src="/images/picture-3.png" alt="" />
             <img src="/images/picture-4.png" alt="" />
@@ -17,9 +25,9 @@ const Product = () => {
         </div>
         <div className="product-info">
           <div className="information">
-            <h3>shoe catalog</h3>
-            <h4>shoe descri</h4>
-            <p>price</p>
+            <h3>{`${correctProduct?.shoes}`}</h3>
+            <h3>{`${correctProduct?.catalog}`}</h3>
+            <h3>${`${correctProduct?.price}`}</h3>
           </div>
           <div className="decide">
             <h5>Quanity</h5>
@@ -37,28 +45,7 @@ const Product = () => {
       <div className="product-description">
         <h1>Description</h1>
         <div className="product-lan"></div>
-        <span>
-          1.
-          <br />
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore atque
-          nisi deleniti dolorum quasi nulla, cupiditate quas magni. Facilis
-          mollitia quibusdam nemo doloribus provident blanditiis optio
-          laudantium, quod corrupti sint? <br />
-          <br />
-          2.
-          <br />
-          Lorem ipsum dolor sit, amet cnsectetur adipisicing elit. Dolore atque
-          nisi deleniti dolorum quasi nulla, cupiditate quas magni. Facilis
-          mollitia quibusdam nemo doloribus provident blanditiis optio
-          laudantium, quod corrupti sint? 3.Lorem ipsum dolor sit, amet
-          consectetur adipisicing elit. <br />
-          <br />
-          3.
-          <br />
-          Dolore atque nisi deleniti dolorum quasi nulla, cupiditate quas magni.
-          Facilis mollitia quibusdam nemo doloribus provident blanditiis optio
-          laudantium, quod corrupti sint?
-        </span>
+        <span>{`${correctProduct?.description}`}</span>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Homepage = () => {
             <h2>25% OFF</h2>
             <h3>Summer Sale</h3>
             <p>Discover our summer styles with discount</p>
-            <Link to={`/product/Off-White`}>
+            <Link to={`/product/0`}>
               <button>Shop Now</button>
             </Link>
           </div>
