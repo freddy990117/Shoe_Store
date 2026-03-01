@@ -45,7 +45,14 @@ const Product = () => {
       <div className="product-description">
         <h1>Description</h1>
         <div className="product-lan"></div>
-        <span>{`${correctProduct?.description}`}</span>
+        <span className="description">{`${correctProduct?.description}`}</span>
+        <ul className="keypoint-container">
+          {correctProduct?.keyPoint?.map((item, index) => (
+            <li key={index} className="keypoint">
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
