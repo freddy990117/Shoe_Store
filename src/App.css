@@ -187,7 +187,7 @@
             line-height: 20px;
             color: #67696e;
           }
-          p{
+          p {
             font-size: 18px;
             line-height: 24px;
             letter-spacing: -0.5px;
@@ -496,6 +496,18 @@
   }
 }
 
+.description {
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.keypoint-container {
+  padding: 28px;
+  .keypoint {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
 a {
   text-decoration: none;
   color: black;
