@@ -16,12 +16,12 @@ const Product = () => {
           <button className="left-btn">{"<"}</button>
           <button className="right-btn">{">"}</button>
           <img src={`${correctProduct?.imageURL}`} alt="product-intro" />
+          {/* Map more product picture */}
           <div className="more-picture">
-            <img src="/images/picture-3.png" alt="" />
-            <img src="/images/picture-4.png" alt="" />
-            <img src="/images/picture-5.png" alt="" />
+            {productList.map((item, index) => (
+              <img key={index} src={`${item.imageURL}`} alt={`${item.title}`} />
+            ))}
           </div>
-          {/* You can put more picture to click over here. */}
         </div>
         <div className="product-info">
           <div className="information">
