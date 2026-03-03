@@ -1,14 +1,8 @@
-import { useParams } from "react-router-dom";
 import { useProducts } from "../Context/ProductContext";
 import { useCallback, useState } from "react";
 
 const Product = () => {
   const productList = useProducts();
-  // 讀取 Router 中的 id 值
-  const { id } = useParams<{ id: string }>();
-  // find id by clicked
-  const correctProduct = productList.find((item) => item.id === Number(id));
-  if (!productList) return <div>Product is delivering</div>;
 
   // right and left btn fn
   const [currentIndex, setCurrectIndex] = useState<number>(0);
@@ -22,8 +16,12 @@ const Product = () => {
       return prev > 0 ? prev - 1 : 0;
     });
   }, []);
-
+  // 	TS 會從 productList 自動推斷型別
   const currentProduct = productList[currentIndex];
+  const morePicture = productList.map((item) => {
+    return <img src={`${item.imageURL}`} alt={`${item.title}`} key={item.id} />;
+  });
+
   return (
     <div className="product-container">
       <div className="product-gallery">
@@ -35,11 +33,7 @@ const Product = () => {
             {">"}
           </button>
           <img src={`${currentProduct.imageURL}`} alt="product-intro" />
-          <div className="more-picture">
-            <img src="/images/picture-3.png" alt="" />
-            <img src="/images/picture-4.png" alt="" />
-            <img src="/images/picture-5.png" alt="" />
-          </div>
+          <div className="more-picture">{morePicture}</div>
           {/* You can put more picture to click over here. */}
         </div>
         <div className="product-info">
@@ -71,3 +65,11 @@ const Product = () => {
 };
 
 export default Product;
+
+// import { useParams } from "react-router-dom";
+
+//  // 讀取 Router 中的 id 值
+//   const { id } = useParams<{ id: string }>();
+//   // find id by clicked
+//   const correctProduct = productList.find((item) => item.id === Number(id));
+//   if (!productList) return <div>Product is delivering</div>;
