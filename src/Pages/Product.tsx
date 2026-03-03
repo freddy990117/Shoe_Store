@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useProducts } from "../Context/ProductContext";
+import { useCallback, useState } from "react";
 
 const Product = () => {
   const productList = useProducts();
@@ -9,25 +10,43 @@ const Product = () => {
   const correctProduct = productList.find((item) => item.id === Number(id));
   if (!productList) return <div>Product is delivering</div>;
 
+  // right and left btn fn
+  const [currentIndex, setCurrectIndex] = useState<number>(0);
+  const rightBtn = useCallback(() => {
+    setCurrectIndex((prev) => {
+      return prev < productList.length - 1 ? prev + 1 : prev;
+    });
+  }, []);
+  const leftBtn = useCallback(() => {
+    setCurrectIndex((prev) => {
+      return prev > 0 ? prev - 1 : 0;
+    });
+  }, []);
+
+  const currentProduct = productList[currentIndex];
   return (
     <div className="product-container">
       <div className="product-gallery">
         <div className="product-image">
-          <button className="left-btn">{"<"}</button>
-          <button className="right-btn">{">"}</button>
-          <img src={`${correctProduct?.imageURL}`} alt="product-intro" />
-          {/* Map more product picture */}
+          <button className="left-btn" onClick={leftBtn}>
+            {"<"}
+          </button>
+          <button className="right-btn" onClick={rightBtn}>
+            {">"}
+          </button>
+          <img src={`${currentProduct.imageURL}`} alt="product-intro" />
           <div className="more-picture">
-            {productList.map((item, index) => (
-              <img key={index} src={`${item.imageURL}`} alt={`${item.title}`} />
-            ))}
+            <img src="/images/picture-3.png" alt="" />
+            <img src="/images/picture-4.png" alt="" />
+            <img src="/images/picture-5.png" alt="" />
           </div>
+          {/* You can put more picture to click over here. */}
         </div>
         <div className="product-info">
           <div className="information">
-            <h3>{`${correctProduct?.shoes}`}</h3>
-            <h3>{`${correctProduct?.catalog}`}</h3>
-            <h3>${`${correctProduct?.price}`}</h3>
+            <h3>{`${currentProduct.shoes}`}</h3>
+            <h3>{`${currentProduct.catalog}`}</h3>
+            <h3>${`${currentProduct.price}`}</h3>
           </div>
           <div className="decide">
             <h5>Quanity</h5>
@@ -45,14 +64,7 @@ const Product = () => {
       <div className="product-description">
         <h1>Description</h1>
         <div className="product-lan"></div>
-        <span className="description">{`${correctProduct?.description}`}</span>
-        <ul className="keypoint-container">
-          {correctProduct?.keyPoint?.map((item, index) => (
-            <li key={index} className="keypoint">
-              {item}
-            </li>
-          ))}
-        </ul>
+        <span>{`${currentProduct.description}`}</span>
       </div>
     </div>
   );
