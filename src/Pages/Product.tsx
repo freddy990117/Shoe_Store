@@ -13,7 +13,6 @@ const Product = () => {
   const [currentIndex, setCurrectIndex] = useState<number>(
     initalIndex >= 0 ? initalIndex : 0,
   );
-
   // find id by clicked
   if (!productList) return <div>Product is delivering</div>;
 
@@ -32,8 +31,15 @@ const Product = () => {
 
   // 	TS 會從 productList 自動推斷型別，並會自動取得 id
   const currentProduct = productList[currentIndex];
-  const morePicture = productList.map((item) => {
-    return <img src={`${item.imageURL}`} alt={`${item.title}`} key={item.id} />;
+  const morePicture = productList.map((item, index) => {
+    return (
+      <img
+        src={`${item.imageURL}`}
+        alt={`${item.title}`}
+        key={item.id}
+        className={`${index === currentIndex ? "active" : ""}`}
+      />
+    );
   });
 
   return (
