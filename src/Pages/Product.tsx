@@ -38,6 +38,9 @@ const Product = () => {
         alt={`${item.title}`}
         key={item.id}
         className={`${index === currentIndex ? "active" : ""}`}
+        onClick={() => {
+          setCurrectIndex(index);
+        }}
       />
     );
   });
