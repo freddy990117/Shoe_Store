@@ -45,6 +45,16 @@ const Product = () => {
     );
   });
 
+  const [cartNum, setCartNum] = useState(1);
+  const plusBtn = useCallback(() => {
+    setCartNum((prev) => (prev += 1));
+  }, []);
+  const reduceBtn = useCallback(() => {
+    setCartNum((prev) => {
+      return prev > 1 ? prev - 1 : 1;
+    });
+  }, []);
+
   return (
     <div className="product-container">
       <div className="product-gallery">
@@ -70,9 +80,13 @@ const Product = () => {
           <div className="decide">
             <h5>Quanity</h5>
             <div className="product-number">
-              <button>-</button>
-              <span>1{/* click button would be changed */}</span>
-              <button>+</button>
+              <button className="cart-btn" onClick={reduceBtn}>
+                -
+              </button>
+              <span>{cartNum}</span>
+              <button className="cart-btn" onClick={plusBtn}>
+                +
+              </button>
             </div>
             <div className="cart-btn">
               <button>Add to Cart</button>
