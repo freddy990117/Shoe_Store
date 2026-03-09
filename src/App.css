@@ -232,7 +232,7 @@
       /* !Button position would be changed  */
       button {
         position: absolute;
-        top: 63%;
+        top: 60%;
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -285,13 +285,11 @@
           font-size: 18px;
           display: flex;
           justify-content: space-between;
-          align-items: center;
           text-align: center;
-          padding: 9px 12px;
+          padding: 6px 12px;
           width: 20%;
           border-radius: 12px;
           border: 1px solid gray;
-          gap: 2px;
           margin: 4px 0;
           span {
             background-color: white;
@@ -307,6 +305,9 @@
             text-decoration: none;
             font-size: 18px;
             border: none;
+            height: 100%;
+          }
+          .cart-btn {
           }
         }
       }
