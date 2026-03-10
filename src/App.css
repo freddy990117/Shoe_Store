@@ -307,8 +307,6 @@
             border: none;
             height: 100%;
           }
-          .cart-btn {
-          }
         }
       }
       .cart-btn {
@@ -338,6 +336,11 @@
     }
     span {
       font-size: 24px;
+      white-space: pre-line;
+    }
+    .keypoint {
+      font-size: 20px;
+      columns: #67696e;
     }
   }
 }
