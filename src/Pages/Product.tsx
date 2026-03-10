@@ -13,6 +13,8 @@ const Product = () => {
   const [currentIndex, setCurrectIndex] = useState<number>(
     initalIndex >= 0 ? initalIndex : 0,
   );
+  // cart's number state
+  const [cartNum, setCartNum] = useState<number>(1);
 
   // Error message
   if (!productList) return <div>Product is delivering</div>;
@@ -27,6 +29,16 @@ const Product = () => {
   const leftBtn = useCallback(() => {
     setCurrectIndex((prev) => {
       return prev > 0 ? prev - 1 : 0;
+    });
+  }, []);
+
+  // cart's number setup fn
+  const plusBtn = useCallback(() => {
+    setCartNum((prev) => (prev += 1));
+  }, []);
+  const reduceBtn = useCallback(() => {
+    setCartNum((prev) => {
+      return prev > 1 ? prev - 1 : 1;
     });
   }, []);
 
@@ -48,9 +60,11 @@ const Product = () => {
     );
   });
 
+  // Change product would inital cart number
+  useEffect(() => {
+    setCartNum(1);
+  }, [currentIndex]);
   const keypoint = currentProduct.keyPoint;
-
-  console.log(keypoint);
 
   return (
     <div className="product-container">
@@ -77,17 +91,11 @@ const Product = () => {
           <div className="decide">
             <h5>Quanity</h5>
             <div className="product-number">
-              <button
-                className="cart-btn"
-                // onClick={reduceBtn}
-              >
+              <button className="cart-btn" onClick={reduceBtn}>
                 -
               </button>
-              <span>1{/* {cartNum} */}</span>
-              <button
-                className="cart-btn"
-                // onClick={plusBtn}
-              >
+              <span>{cartNum}</span>
+              <button className="cart-btn" onClick={plusBtn}>
                 +
               </button>
             </div>
@@ -114,19 +122,3 @@ const Product = () => {
   );
 };
 export default Product;
-// // cart's number state
-// const [cartNum, setCartNum] = useState<number>(1);
-
-// // cart's number setup fn
-// const plusBtn = useCallback(() => {
-//   setCartNum((prev) => (prev += 1));
-// }, []);
-// const reduceBtn = useCallback(() => {
-//   setCartNum((prev) => {
-//     return prev > 1 ? prev - 1 : 1;
-//   });
-// }, []);
-// // Change product would inital cart number
-// useEffect(() => {
-//   setCartNum(1);
-// }, [currentIndex]);
