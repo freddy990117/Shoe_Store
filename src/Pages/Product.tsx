@@ -1,5 +1,5 @@
 import { useProducts } from "../Context/ProductContext";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Product = () => {
@@ -13,7 +13,8 @@ const Product = () => {
   const [currentIndex, setCurrectIndex] = useState<number>(
     initalIndex >= 0 ? initalIndex : 0,
   );
-  // find id by clicked
+
+  // Error message
   if (!productList) return <div>Product is delivering</div>;
 
   // right and left btn fn
@@ -31,6 +32,7 @@ const Product = () => {
 
   // 	TS 會從 productList 自動推斷型別，並會自動取得 id
   const currentProduct = productList[currentIndex];
+  // Render more picture
   const morePicture = productList.map((item, index) => {
     return (
       <img
@@ -38,6 +40,7 @@ const Product = () => {
         alt={`${item.title}`}
         key={item.id}
         className={`${index === currentIndex ? "active" : ""}`}
+        // find id by clicked
         onClick={() => {
           setCurrectIndex(index);
         }}
@@ -45,15 +48,9 @@ const Product = () => {
     );
   });
 
-  const [cartNum, setCartNum] = useState(1);
-  const plusBtn = useCallback(() => {
-    setCartNum((prev) => (prev += 1));
-  }, []);
-  const reduceBtn = useCallback(() => {
-    setCartNum((prev) => {
-      return prev > 1 ? prev - 1 : 1;
-    });
-  }, []);
+  const keypoint = currentProduct.keyPoint;
+
+  console.log(keypoint);
 
   return (
     <div className="product-container">
@@ -80,11 +77,17 @@ const Product = () => {
           <div className="decide">
             <h5>Quanity</h5>
             <div className="product-number">
-              <button className="cart-btn" onClick={reduceBtn}>
+              <button
+                className="cart-btn"
+                // onClick={reduceBtn}
+              >
                 -
               </button>
-              <span>{cartNum}</span>
-              <button className="cart-btn" onClick={plusBtn}>
+              <span>1{/* {cartNum} */}</span>
+              <button
+                className="cart-btn"
+                // onClick={plusBtn}
+              >
                 +
               </button>
             </div>
@@ -98,9 +101,32 @@ const Product = () => {
         <h1>Description</h1>
         <div className="product-lan"></div>
         <span>{`${currentProduct.description}`}</span>
+        <div className="product-lan"></div>
+        <ul>
+          {keypoint.map((item, index) => (
+            <li className="keypoint" key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 };
-
 export default Product;
+// // cart's number state
+// const [cartNum, setCartNum] = useState<number>(1);
+
+// // cart's number setup fn
+// const plusBtn = useCallback(() => {
+//   setCartNum((prev) => (prev += 1));
+// }, []);
+// const reduceBtn = useCallback(() => {
+//   setCartNum((prev) => {
+//     return prev > 1 ? prev - 1 : 1;
+//   });
+// }, []);
+// // Change product would inital cart number
+// useEffect(() => {
+//   setCartNum(1);
+// }, [currentIndex]);
