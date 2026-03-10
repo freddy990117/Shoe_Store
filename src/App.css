@@ -165,19 +165,39 @@
         justify-content: space-between;
         width: 100%;
         margin-top: 32px;
-        .more-product {
+        .product-catalog {
           display: flex;
+          gap: 24px;
           img {
             display: flex;
             width: 261px;
             height: 284px;
             border-radius: 18px;
           }
+          h3 {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+            margin-top: 18px;
+          }
+          h4 {
+            margin: 4px 0;
+            font-size: 16px;
+            line-height: 20px;
+            color: #67696e;
+          }
+          p {
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+          }
         }
       }
     }
   }
 }
+
 .product-container {
   width: 100%;
   display: flex;
@@ -212,7 +232,7 @@
       /* !Button position would be changed  */
       button {
         position: absolute;
-        top: 63%;
+        top: 60%;
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -265,13 +285,11 @@
           font-size: 18px;
           display: flex;
           justify-content: space-between;
-          align-items: center;
           text-align: center;
-          padding: 9px 12px;
+          padding: 6px 12px;
           width: 20%;
           border-radius: 12px;
           border: 1px solid gray;
-          gap: 2px;
           margin: 4px 0;
           span {
             background-color: white;
@@ -287,6 +305,7 @@
             text-decoration: none;
             font-size: 18px;
             border: none;
+            height: 100%;
           }
         }
       }
@@ -317,6 +336,11 @@
     }
     span {
       font-size: 24px;
+      white-space: pre-line;
+    }
+    .keypoint {
+      font-size: 20px;
+      columns: #67696e;
     }
   }
 }
@@ -476,10 +500,42 @@
   }
 }
 
+.description {
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.keypoint-container {
+  padding: 28px;
+  .keypoint {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
 a {
   text-decoration: none;
   color: black;
 }
 button {
   cursor: pointer;
+}
+
+.more-picture {
+  .active {
+    border: 2px solid #93c5fd;
+    border-radius: 10px;
+    animation: borderBlink 2s 3;
+  }
+}
+
+@keyframes borderBlink {
+  0% {
+    border-color: #93c5fd;
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #93c5fd;
+  }
 }
