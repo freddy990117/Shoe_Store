@@ -1,60 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import { useCart } from "../Context/CartContext";
 
 const Bag = () => {
+  const { cart } = useCart();
+  const cartItem = cart.map((product) => {
+    return (
+      <div className="shoe-decide">
+        <div className="shoe-info">
+          <div className="shoe-img">
+            <img src={`${product.img}`} alt={`${product.title}`} />
+          </div>
+          <div className="shoe-des">
+            <div className="shoe-catalog">
+              <h3>{`${product.shoes}`}</h3>
+              <h4>{`${product.catalog}`}</h4>
+            </div>
+            <div className="shoe-btn">
+              <div className="shoe-num">
+                <button>-</button>
+                <span>{`${product.quantity}`}</span>
+                <button>+</button>
+              </div>
+              <button className="remove-btn">Remove</button>
+            </div>
+          </div>
+          <div className="shoe-price">
+            <p>${`${product.price}`}</p>
+          </div>
+        </div>
+        <div className="shoe-lan" />
+      </div>
+    );
+  });
   return (
     <div className="bag-container">
       <div className="shoe-bag">
         <h1>Your Bag</h1>
-        <div className="shoe-decide">
-          <div className="shoe-info">
-            <div className="shoe-img">
-              <img src="/images/picture-4.png" alt="Nike shoes" />
-            </div>
-            <div className="shoe-des">
-              <div className="shoe-catalog">
-                <h3>Nike</h3>
-                <h4>Nike Air Force Premium</h4>
-              </div>
-              <div className="shoe-btn">
-                <div className="shoe-num">
-                  <button>-</button>
-                  <span>1{/* click button would be changed */}</span>
-                  <button>+</button>
-                </div>
-                <button className="remove-btn">Remove</button>
-              </div>
-            </div>
-            <div className="shoe-price">
-              <p>$98.23</p>
-            </div>
-          </div>
-          <div className="shoe-lan" />
-        </div>
-        <div className="shoe-decide">
-          <div className="shoe-info">
-            <div className="shoe-img">
-              <img src="/images/picture-4.png" alt="Nike shoes" />
-            </div>
-            <div className="shoe-des">
-              <div className="shoe-catalog">
-                <h3>Nike</h3>
-                <h4>Nike Air Force Premium</h4>
-              </div>
-              <div className="shoe-btn">
-                <div className="shoe-num">
-                  <button>-</button>
-                  <span>1{/* click button would be changed */}</span>
-                  <button>+</button>
-                </div>
-                <button className="remove-btn">Remove</button>
-              </div>
-            </div>
-            <div className="shoe-price">
-              <p>$98.23</p>
-            </div>
-          </div>
-          <div className="shoe-lan" />
-        </div>
+        {cartItem}
       </div>
       <div className="bag-summary">
         <div className="bag-summary-info">
