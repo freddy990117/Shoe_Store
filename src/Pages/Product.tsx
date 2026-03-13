@@ -73,9 +73,11 @@ const Product = () => {
   const addBtn = () => {
     addToCart({
       id: currentProduct.id,
+      shoes: currentProduct.shoes,
+      catalog: currentProduct.catalog,
+      img: currentProduct.imageURL,
       title: currentProduct.title,
       price: currentProduct.price,
-      img: currentProduct.imageURL,
       quantity: cartNum,
     });
   };

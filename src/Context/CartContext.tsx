@@ -3,9 +3,11 @@ import { createContext, useContext, useState } from "react";
 // 定義型別： Cart 會需要用到的東西
 interface allCartItem {
   id: number;
+  shoes: string;
+  catalog: string;
+  img: string;
   title: string;
   price: number;
-  img: string;
   quantity: number;
 }
 
