@@ -1,7 +1,7 @@
 import { useProducts } from "../Context/ProductContext";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { useCart } from "../Context/CartContext";
 const Product = () => {
   // import props
   const productList = useProducts();
@@ -33,14 +33,15 @@ const Product = () => {
   }, []);
 
   // cart's number setup fn
-  const plusBtn = useCallback(() => {
+  const plusBtn = () => {
     setCartNum((prev) => (prev += 1));
-  }, []);
-  const reduceBtn = useCallback(() => {
+  };
+
+  const reduceBtn = () => {
     setCartNum((prev) => {
       return prev > 1 ? prev - 1 : 1;
     });
-  }, []);
+  };
 
   // 	TS 會從 productList 自動推斷型別，並會自動取得 id
   const currentProduct = productList[currentIndex];
@@ -66,6 +67,18 @@ const Product = () => {
   }, [currentIndex]);
   const keypoint = currentProduct.keyPoint;
 
+  // import custom fn
+  const { addToCart } = useCart();
+  // setup add fn
+  const addBtn = () => {
+    addToCart({
+      id: currentProduct.id,
+      title: currentProduct.title,
+      price: currentProduct.price,
+      img: currentProduct.imageURL,
+      quantity: cartNum,
+    });
+  };
   return (
     <div className="product-container">
       <div className="product-gallery">
@@ -100,7 +113,7 @@ const Product = () => {
               </button>
             </div>
             <div className="cart-btn">
-              <button>Add to Cart</button>
+              <button onClick={addBtn}>Add to Cart</button>
             </div>
           </div>
         </div>
