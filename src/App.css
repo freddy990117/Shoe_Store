@@ -39,6 +39,18 @@
         display: inline-flex;
         font-size: 14px;
       }
+      .cart-number {
+        color: white;
+        &.active {
+          width: 20px;
+          height: 20px;
+          background-color: #ec5e2a;
+          border-radius: 10px;
+          font-size: 17px;
+          text-align: center;
+          color: white;
+        }
+      }
     }
   }
 }
