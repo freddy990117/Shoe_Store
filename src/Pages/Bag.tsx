@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCart } from "../Context/CartContext";
 
 const Bag = () => {
-  const { cart } = useCart();
+  const { cart, plusBtn, reduceBtn } = useCart();
   const cartItem = cart.map((product) => {
     return (
       <div className="shoe-decide">
@@ -17,9 +17,9 @@ const Bag = () => {
             </div>
             <div className="shoe-btn">
               <div className="shoe-num">
-                <button>-</button>
+                <button onClick={() => reduceBtn(product.id)}>-</button>
                 <span>{`${product.quantity}`}</span>
-                <button>+</button>
+                <button onClick={() => plusBtn(product.id)}>+</button>
               </div>
               <button className="remove-btn">Remove</button>
             </div>
