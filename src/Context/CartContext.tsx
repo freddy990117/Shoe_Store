@@ -16,6 +16,8 @@ interface CartContextType {
   cart: allCartItem[]; // cart 回傳的會是 [{},{},{}] 這些 {} 都會符合 allCartItem 的資料型態！
   addToCart: (product: allCartItem) => void;
   // product 這個 fn 不回傳任何值(void)，product 要符合 allCartItem 行別
+  plusBtn: (id: number) => void;
+  reduceBtn: (id: number) => void;
 }
 
 // !根據 CartContextType 或是 null 建立通道,一開始的資料型態是 null，所以需要加上 null
@@ -29,8 +31,30 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const addToCart = (product: allCartItem) => {
     setCart((prev) => [...prev, product]);
   };
+
+  const plusBtn = (id: number) => {
+    // 展開舊陣列
+    setCart((prev) =>
+      // 使用 map 更新特定的 item
+      prev.map((item) =>
+        // 比對 item 如否等於傳進來的 item,相同的建立一個新的 Object 然後把 quantity +1
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
+  };
+
+  const reduceBtn = (id: number) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+          : item,
+      ),
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, plusBtn, reduceBtn }}>
       {children}
     </CartContext.Provider>
   );
