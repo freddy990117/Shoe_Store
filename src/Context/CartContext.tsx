@@ -30,9 +30,24 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<allCartItem[]>([]);
   // 建立一個回傳值 product 內容中要符合 allCartItem
   const addToCart = (product: allCartItem) => {
-    setCart((prev) => [...prev, product]);
-  };
+    setCart((prev) => {
+      // 建立一個變數判斷 id 是否相同，如果沒有相同就直接 return [...prev,.....]
+      const existingItem = prev.find((item) => item.id === product.id);
 
+      // 如果有相同，回傳一個新的 item
+      if (existingItem) {
+        return prev.map((item) =>
+          // 「收到資料的 id 」與「原本資料型態的 id 對比」
+          item.id === product.id
+            ? // 展開 item,將內容中的 quantity 取出並加入目前的數量
+              { ...item, quantity: item.quantity + product.quantity }
+            : item,
+        );
+      }
+
+      return [...prev, product];
+    });
+  };
   const plusBtn = (id: number) => {
     // 展開舊陣列
     setCart((prev) =>
