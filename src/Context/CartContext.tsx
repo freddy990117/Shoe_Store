@@ -19,6 +19,11 @@ interface CartContextType {
   plusBtn: (id: number) => void;
   reduceBtn: (id: number) => void;
   removeBtn: (id: number) => void;
+  Subtotal: number;
+  shipPrice: number;
+  discountPrice: number;
+  taxPrice: number;
+  totalPrice: number;
 }
 
 // !根據 CartContextType 或是 null 建立通道,一開始的資料型態是 null，所以需要加上 null
@@ -73,9 +78,42 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const Subtotal: number = cart.reduce((total, product) => {
+    return total + product.price * product.quantity;
+  }, 0);
+
+  const shipPrice: number = cart.reduce((total, product) => {
+    return Subtotal >= 3000 ? 0 : total + product.quantity * 20;
+  }, 0);
+
+  const discountPrice: number = Math.trunc(
+    Subtotal >= 5000
+      ? Subtotal * 0.7
+      : Subtotal >= 4000
+        ? Subtotal * 0.8
+        : Subtotal >= 3000
+          ? Subtotal * 0.9
+          : Subtotal,
+  );
+  // According Taiwan tax (0.05)
+  const taxPrice: number = Math.trunc(0.05 * discountPrice);
+
+  const totalPrice: number = shipPrice + discountPrice + taxPrice;
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, plusBtn, reduceBtn, removeBtn }}
+      value={{
+        cart,
+        addToCart,
+        plusBtn,
+        reduceBtn,
+        removeBtn,
+        Subtotal,
+        shipPrice,
+        discountPrice,
+        taxPrice,
+        totalPrice,
+      }}
     >
       {children}
     </CartContext.Provider>
