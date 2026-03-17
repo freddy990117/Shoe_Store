@@ -18,6 +18,7 @@ interface CartContextType {
   // product 這個 fn 不回傳任何值(void)，product 要符合 allCartItem 行別
   plusBtn: (id: number) => void;
   reduceBtn: (id: number) => void;
+  removeBtn: (id: number) => void;
 }
 
 // !根據 CartContextType 或是 null 建立通道,一開始的資料型態是 null，所以需要加上 null
@@ -53,8 +54,14 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
+  const removeBtn = (id: number) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, plusBtn, reduceBtn }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, plusBtn, reduceBtn, removeBtn }}
+    >
       {children}
     </CartContext.Provider>
   );
