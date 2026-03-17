@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { useCart } from "../Context/CartContext";
 
 const Bag = () => {
-  const { cart, plusBtn, reduceBtn, removeBtn } = useCart();
+  const {
+    cart,
+    plusBtn,
+    reduceBtn,
+    removeBtn,
+    Subtotal,
+    shipPrice,
+    discountPrice,
+    taxPrice,
+    totalPrice,
+  } = useCart();
   const cartItem = cart.map((product) => {
     return (
       <div className="shoe-decide">
@@ -37,6 +47,7 @@ const Bag = () => {
       </div>
     );
   });
+
   return (
     <div className="bag-container">
       <div className="shoe-bag">
@@ -48,26 +59,26 @@ const Bag = () => {
           <h1>Summary</h1>
           <div className="bag-summary-detail Subtotal">
             <h3>Subtotal</h3>
-            <span>$90.00</span>
+            <span>${Subtotal}</span>
           </div>
           <div className="bag-summary-detail Shipping">
             <h3>Shipping and delivery</h3>
-            <span>$20.00</span>
+            <span>${shipPrice}</span>
           </div>
           <div className="bag-summary-detail Tax">
             <h3>Tax</h3>
-            <span>$6.00</span>
+            <span>${taxPrice}</span>
           </div>
           <div className="bag-summary-detail Discount">
             <h3>Discount</h3>
-            <span>-$6.00</span>
+            <span>-${discountPrice}</span>
           </div>
         </div>
         <div className="bag-summary-lan"></div>
         <div className="bag-summary-total">
           <div className="total-detail">
             <h2>Total</h2>
-            <span>$164.46</span>
+            <span>${totalPrice}</span>
           </div>
           <button className="checkout">Checkout →</button>
         </div>
