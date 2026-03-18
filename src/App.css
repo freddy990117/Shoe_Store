@@ -28,6 +28,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       border: 1px solid #201b21;
       gap: 10px;
       padding: 8px 24px;
@@ -40,15 +41,20 @@
         font-size: 14px;
       }
       .cart-number {
-        color: white;
+        line-height: 20px;
+        font-size: 17px;
+        overflow-x: 10px;
+        display: none;
+        opacity: 0;
         &.active {
+          display: inline;
           width: 20px;
           height: 20px;
           background-color: #ec5e2a;
           border-radius: 10px;
-          font-size: 17px;
           text-align: center;
           color: white;
+          opacity: 1;
         }
       }
     }
@@ -336,7 +342,7 @@
     }
   }
   .product-description {
-    height: 850px;
+    height: 900px;
     padding: 12px;
     .product-lan {
       border: 1px solid black;
