@@ -1,7 +1,7 @@
 import { useProducts } from "../Context/ProductContext";
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { useCart } from "../Context/CartContext";
 const Product = () => {
   // import props
   const productList = useProducts();
@@ -13,6 +13,8 @@ const Product = () => {
   const [currentIndex, setCurrectIndex] = useState<number>(
     initalIndex >= 0 ? initalIndex : 0,
   );
+  // cart's number state
+  const [cartNum, setCartNum] = useState<number>(1);
 
   // Error message
   if (!productList) return <div>Product is delivering</div>;
@@ -29,6 +31,17 @@ const Product = () => {
       return prev > 0 ? prev - 1 : 0;
     });
   }, []);
+
+  // cart's number setup fn
+  const plusBtn = () => {
+    setCartNum((prev) => (prev += 1));
+  };
+
+  const reduceBtn = () => {
+    setCartNum((prev) => {
+      return prev > 1 ? prev - 1 : 1;
+    });
+  };
 
   // 	TS 會從 productList 自動推斷型別，並會自動取得 id
   const currentProduct = productList[currentIndex];
@@ -48,10 +61,26 @@ const Product = () => {
     );
   });
 
+  // Change product would inital cart number
+  useEffect(() => {
+    setCartNum(1);
+  }, [currentIndex]);
   const keypoint = currentProduct.keyPoint;
 
-  console.log(keypoint);
-
+  // import custom fn
+  const { addToCart } = useCart();
+  // setup add fn
+  const addBtn = () => {
+    addToCart({
+      id: currentProduct.id,
+      shoes: currentProduct.shoes,
+      catalog: currentProduct.catalog,
+      img: currentProduct.imageURL,
+      title: currentProduct.title,
+      price: currentProduct.price,
+      quantity: cartNum,
+    });
+  };
   return (
     <div className="product-container">
       <div className="product-gallery">
@@ -77,22 +106,16 @@ const Product = () => {
           <div className="decide">
             <h5>Quanity</h5>
             <div className="product-number">
-              <button
-                className="cart-btn"
-                // onClick={reduceBtn}
-              >
+              <button className="cart-btn" onClick={reduceBtn}>
                 -
               </button>
-              <span>1{/* {cartNum} */}</span>
-              <button
-                className="cart-btn"
-                // onClick={plusBtn}
-              >
+              <span>{cartNum}</span>
+              <button className="cart-btn" onClick={plusBtn}>
                 +
               </button>
             </div>
             <div className="cart-btn">
-              <button>Add to Cart</button>
+              <button onClick={addBtn}>Add to Cart</button>
             </div>
           </div>
         </div>
@@ -114,19 +137,3 @@ const Product = () => {
   );
 };
 export default Product;
-// // cart's number state
-// const [cartNum, setCartNum] = useState<number>(1);
-
-// // cart's number setup fn
-// const plusBtn = useCallback(() => {
-//   setCartNum((prev) => (prev += 1));
-// }, []);
-// const reduceBtn = useCallback(() => {
-//   setCartNum((prev) => {
-//     return prev > 1 ? prev - 1 : 1;
-//   });
-// }, []);
-// // Change product would inital cart number
-// useEffect(() => {
-//   setCartNum(1);
-// }, [currentIndex]);
