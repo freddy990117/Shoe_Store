@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useCart } from "../Context/CartContext";
 
 const Bag = () => {
@@ -10,8 +9,8 @@ const Bag = () => {
     Subtotal,
     shipPrice,
     discountPrice,
-    taxPrice,
     totalPrice,
+    finalTax,
   } = useCart();
   const cartItem = cart.map((product) => {
     return (
@@ -67,7 +66,7 @@ const Bag = () => {
           </div>
           <div className="bag-summary-detail Tax">
             <h3>Tax</h3>
-            <span>${taxPrice}</span>
+            <span>${finalTax}</span>
           </div>
           <div className="bag-summary-detail Discount">
             <h3>Discount</h3>
