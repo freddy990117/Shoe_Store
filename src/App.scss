@@ -113,7 +113,8 @@
   flex-direction: column;
   .homepage-product {
     background-color: #eaeeef;
-    width: 1116px;
+    width: 90%;
+    max-width: 1116px;
     height: 427px;
     margin: 32px 0;
     border-radius: 40px;
@@ -165,7 +166,8 @@
     }
   }
   .homepage-more {
-    width: 1116px;
+    width: 100%;
+    max-width: 1116px;
     height: 470px;
     margin: 32px 0 56px 0;
     .more-product {
@@ -558,11 +560,18 @@ button {
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 390px) {
   .header {
-    width: 1000px;
     display: flex;
+    .header-logo {
+      gap: 9px;
+      padding: 20px 0 20px 20px;
+    }
+    .header-cart {
+      padding: 14px 20px 14px 0;
+    }
+  }
+  .footer {
+    max-height: 128px;
   }
 }
-
-
