@@ -8,14 +8,16 @@ import {
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-logo">
-        <img src="/icons/icon.png" alt="logo" />
-        <a href="/">
-          <h1> SUN CO.</h1>
-        </a>
-      </div>
-      <div className="footer-copyright">
-        <p>© 2023 dot.cards text task. All rights reserved</p>
+      <div className="footer-item">
+        <div className="footer-logo">
+          <img src="/icons/icon.png" alt="logo" />
+          <a href="/">
+            <h1> SUN CO.</h1>
+          </a>
+        </div>
+        <div className="footer-copyright">
+          <p>© 2023 dot.cards text task. All rights reserved</p>
+        </div>
       </div>
       <div className="footer-contact">
         <a href="https://freddy990117.github.io/My_Website/">
