@@ -579,8 +579,8 @@ button {
     }
   }
   .footer {
-    height: 128px;
-    width: 390px;
+    height: 130px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -608,5 +608,8 @@ button {
       flex: 1;
       padding: 24px 20px 80px 0;
     }
+  }
+  .homepage-main {
+    overflow-x: hidden;
   }
 }
