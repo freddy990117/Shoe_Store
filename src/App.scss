@@ -645,5 +645,15 @@ button {
         }
       }
     }
+    .homepage-more {
+      margin-left: 20px;
+      .more-product {
+        h2 {
+          font-size: 28px;
+          line-height: 36px;
+          letter-spacing: -1px;
+        }
+      }
+    }
   }
 }

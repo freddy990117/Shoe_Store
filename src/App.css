@@ -643,4 +643,12 @@ button {
   .homepage-main .homepage-product .product-introduce button {
     width: 302px;
   }
+  .homepage-main .homepage-more {
+    margin-left: 20px;
+  }
+  .homepage-main .homepage-more .more-product h2 {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -1px;
+  }
 }/*# sourceMappingURL=App.css.map */
