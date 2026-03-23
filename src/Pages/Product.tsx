@@ -1,5 +1,5 @@
 import { useProducts } from "../Context/ProductContext";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 const Product = () => {
@@ -20,17 +20,17 @@ const Product = () => {
   if (!productList) return <div>Product is delivering</div>;
 
   // right and left btn fn
-  const rightBtn = useCallback(() => {
+  const rightBtn = () => {
     setCurrectIndex((prev) => {
       return prev < productList.length - 1 ? prev + 1 : prev;
     });
-  }, []);
+  };
 
-  const leftBtn = useCallback(() => {
+  const leftBtn = () => {
     setCurrectIndex((prev) => {
       return prev > 0 ? prev - 1 : 0;
     });
-  }, []);
+  };
 
   // cart's number setup fn
   const plusBtn = () => {
