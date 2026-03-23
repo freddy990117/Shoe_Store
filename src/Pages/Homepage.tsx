@@ -4,7 +4,7 @@ import { useSlide } from "../Hooks/useSlide";
 const Homepage = () => {
   // import useProduct and use.
   const productList = useProducts();
-  const { next, prev } = useSlide(productList.length);
+  const { currentIndex, next, prev } = useSlide(productList.length);
   return (
     <div>
       <div className="homepage-main">
@@ -27,7 +27,12 @@ const Homepage = () => {
             <div className="product">
               <div className="product-catalog">
                 {productList.map((item) => (
-                  <Link key={item.id} to={`/product/${item.id}`}>
+                  <Link
+                    key={item.id}
+                    to={`/product/${item.id}`}
+                    className="carousel-track"
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                  >
                     <img src={`${item.imageURL}`} alt={`${item.title}`} />
                     <h3>{`${item.shoes}`}</h3>
                     <h4>{`${item.catalog}`}</h4>
