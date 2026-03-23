@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const useSlide = (length: number, initalIndex = 0) => {
   const [currentIndex, setCurrectIndex] = useState(initalIndex);
