@@ -201,26 +201,26 @@
   display: flex;
   gap: 24px;
 }
-.homepage-main .homepage-more .more-product .product .product-catalog img {
+.homepage-main .homepage-more .more-product .product .product-catalog .carousel-track img {
   display: flex;
   width: 261px;
   height: 284px;
   border-radius: 18px;
 }
-.homepage-main .homepage-more .more-product .product .product-catalog h3 {
+.homepage-main .homepage-more .more-product .product .product-catalog .carousel-track h3 {
   font-size: 20px;
   font-weight: bold;
   line-height: 24px;
   letter-spacing: -0.5px;
   margin-top: 18px;
 }
-.homepage-main .homepage-more .more-product .product .product-catalog h4 {
+.homepage-main .homepage-more .more-product .product .product-catalog .carousel-track h4 {
   margin: 4px 0;
   font-size: 16px;
   line-height: 20px;
   color: #67696e;
 }
-.homepage-main .homepage-more .more-product .product .product-catalog p {
+.homepage-main .homepage-more .more-product .product .product-catalog .carousel-track p {
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.5px;
@@ -654,6 +654,11 @@ button {
     font-size: 28px;
     line-height: 36px;
     letter-spacing: -1px;
+  }
+  .homepage-main .homepage-more .more-product .product .product-catalog .carousel-track {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
   }
   .homepage-main .homepage-more .more-product .product .product-btn {
     display: flex;
