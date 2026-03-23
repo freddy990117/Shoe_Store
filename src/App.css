@@ -191,7 +191,8 @@
 }
 .homepage-main .homepage-more .more-product .product {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   margin-top: 32px;
@@ -223,6 +224,9 @@
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.5px;
+}
+.homepage-main .homepage-more .more-product .product .product-btn {
+  display: none;
 }
 
 .product-container {
@@ -650,5 +654,16 @@ button {
     font-size: 28px;
     line-height: 36px;
     letter-spacing: -1px;
+  }
+  .homepage-main .homepage-more .more-product .product .product-btn {
+    display: flex;
+    margin-top: 24px;
+    gap: 14px;
+  }
+  .homepage-main .homepage-more .more-product .product .product-btn .homepage-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
   }
 }/*# sourceMappingURL=App.css.map */
