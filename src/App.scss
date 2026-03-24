@@ -682,4 +682,82 @@ button {
       }
     }
   }
+  .product-container {
+    overflow-x: hidden;
+    width: 390px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .product-gallery {
+      padding: 0;
+      .product-image {
+        display: flex;
+        flex-direction: column;
+        .product-btn {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          button {
+            position: relative;
+            right: 0;
+          }
+          .rwd-more {
+            width: 80%;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            span {
+              display: inline-block;
+              width: 12px;
+              height: 12px;
+              background-color: gray;
+              border-radius: 50%;
+            }
+            .active {
+              background-color: black;
+            }
+          }
+        }
+
+        img {
+          width: 350px;
+          height: 240px;
+        }
+        .more-picture {
+          display: none;
+        }
+        // .more {
+        //   display: flex;
+        //   width: 110px;
+        //   height: 14px;
+        //   span {
+        //     width: 12px;
+        //     height: 12px;
+        //     background-color: black;
+        //     align-items: center;
+        //   }
+        // }
+      }
+    }
+    .product-description {
+      h1 {
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+      }
+      span,
+      .keypoint {
+        font-size: 16px;
+        line-height: 20px;
+        color: gray;
+      }
+      .keypoint {
+        margin-top: 5px;
+      }
+    }
+  }
 }
