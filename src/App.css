@@ -573,7 +573,7 @@ button {
     border-color: #93c5fd;
   }
 }
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .header {
     display: flex;
   }
@@ -626,8 +626,8 @@ button {
     width: 350px;
   }
   .homepage-main .homepage-product .product-image img {
-    width: 100%;
-    height: 136px;
+    width: 350px;
+    height: auto;
     padding: 20px 0;
   }
   .homepage-main .homepage-product .product-introduce {
@@ -678,7 +678,6 @@ button {
   }
   .product-container {
     overflow-x: hidden;
-    width: 390px;
     padding: 20px;
     align-items: center;
     justify-content: center;
@@ -767,5 +766,40 @@ button {
   }
   .bag-container .shoe-bag .shoe-info .shoe-des .shoe-catalog p {
     display: inline;
+  }
+  .bag-container .empty-image {
+    width: 390px;
+    height: auto;
+  }
+}
+@media (max-width: 1670px) {
+  .header .header-logo {
+    padding: 20px 40px;
+  }
+  .header .header-cart {
+    max-width: 100%;
+  }
+  .homepage-main .homepage-product {
+    padding: 40px 30px;
+    width: 100%;
+    height: auto;
+  }
+  .product-container {
+    flex-direction: column;
+    width: auto;
+  }
+  .product-container .product-gallery {
+    padding: 12px;
+    position: relative;
+    height: 100%;
+  }
+  .product-container .product-gallery .product-image img {
+    height: auto;
+  }
+  .product-container .product-description {
+    padding: 24px 24px 0 24px;
+  }
+  .product-container .more-picture {
+    position: relative;
   }
 }/*# sourceMappingURL=App.css.map */
