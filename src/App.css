@@ -407,6 +407,11 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
+}
+.bag-container .shoe-bag .shoe-info .shoe-des .shoe-catalog {
+  display: flex;
+  justify-content: space-between;
 }
 .bag-container .shoe-bag .shoe-info .shoe-des h4 {
   margin-top: 6px;
@@ -734,5 +739,33 @@ button {
   }
   .product-container .product-description .keypoint {
     margin-top: 5px;
+  }
+  .bag-container {
+    width: 390px;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 20px;
+  }
+  .bag-container .bag-summary {
+    width: 100%;
+  }
+  .bag-container .shoe-bag {
+    width: 100%;
+  }
+  .bag-container .shoe-bag .shoe-info {
+    width: 100%;
+  }
+  .bag-container .shoe-bag .shoe-info .shoe-des {
+    margin-left: 0;
+  }
+  .bag-container .shoe-bag .shoe-info .shoe-des .shoe-catalog {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bag-container .shoe-bag .shoe-info .shoe-des .shoe-catalog h3 {
+    display: inline;
+  }
+  .bag-container .shoe-bag .shoe-info .shoe-des .shoe-catalog p {
+    display: inline;
   }
 }/*# sourceMappingURL=App.css.map */

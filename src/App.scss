@@ -406,6 +406,11 @@
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
+        width: 100%;
+        .shoe-catalog {
+          display: flex;
+          justify-content: space-between;
+        }
         h4 {
           margin-top: 6px;
         }
@@ -757,6 +762,35 @@ button {
       }
       .keypoint {
         margin-top: 5px;
+      }
+    }
+  }
+  .bag-container {
+    // overflow-x: hidden;
+    width: 390px;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 20px;
+    .bag-summary {
+      width: 100%;
+    }
+    .shoe-bag {
+      width: 100%;
+      .shoe-info {
+        width: 100%;
+        .shoe-des {
+          margin-left: 0;
+          .shoe-catalog {
+            display: flex;
+            justify-content: space-between;
+            h3 {
+              display: inline;
+            }
+            p {
+              display: inline;
+            }
+          }
+        }
       }
     }
   }
