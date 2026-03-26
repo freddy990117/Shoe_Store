@@ -22,8 +22,9 @@ const Bag = () => {
           <div className="shoe-des">
             <div className="shoe-catalog">
               <h3>{`${product.shoes}`}</h3>
-              <h4>{`${product.catalog}`}</h4>
+              <p>${`${product.price}`}</p>
             </div>
+            <h4>{`${product.catalog}`}</h4>
             <div className="shoe-btn">
               <div className="shoe-num">
                 <button onClick={() => reduceBtn(product.id)}>-</button>
@@ -37,9 +38,6 @@ const Bag = () => {
                 Remove
               </button>
             </div>
-          </div>
-          <div className="shoe-price">
-            <p>${`${product.price}`}</p>
           </div>
         </div>
         <div className="shoe-lan" />
