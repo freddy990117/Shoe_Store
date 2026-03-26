@@ -47,39 +47,49 @@ const Bag = () => {
 
   return (
     <div className="bag-container">
-      <div className="shoe-bag">
-        <h1>Your Bag</h1>
-        {cartItem}
-      </div>
-      <div className="bag-summary">
-        <div className="bag-summary-info">
-          <h1>Summary</h1>
-          <div className="bag-summary-detail Subtotal">
-            <h3>Subtotal</h3>
-            <span>${Subtotal}</span>
+      {cart.length === 0 ? (
+        <img
+          src="/public/images/empty_bag.png"
+          alt="empty bag"
+          className="empty-image"
+        />
+      ) : (
+        <>
+          <div className="shoe-bag">
+            <h1>Your Bag</h1>
+            {cartItem}
           </div>
-          <div className="bag-summary-detail Shipping">
-            <h3>Shipping and delivery</h3>
-            <span>${shipPrice}</span>
+          <div className="bag-summary">
+            <div className="bag-summary-info">
+              <h1>Summary</h1>
+              <div className="bag-summary-detail Subtotal">
+                <h3>Subtotal</h3>
+                <span>${Subtotal}</span>
+              </div>
+              <div className="bag-summary-detail Shipping">
+                <h3>Shipping and delivery</h3>
+                <span>${shipPrice}</span>
+              </div>
+              <div className="bag-summary-detail Tax">
+                <h3>Tax</h3>
+                <span>${finalTax}</span>
+              </div>
+              <div className="bag-summary-detail Discount">
+                <h3>Discount</h3>
+                <span>-${discountPrice}</span>
+              </div>
+            </div>
+            <div className="bag-summary-lan"></div>
+            <div className="bag-summary-total">
+              <div className="total-detail">
+                <h2>Total</h2>
+                <span>${totalPrice}</span>
+              </div>
+              <button className="checkout">Checkout →</button>
+            </div>
           </div>
-          <div className="bag-summary-detail Tax">
-            <h3>Tax</h3>
-            <span>${finalTax}</span>
-          </div>
-          <div className="bag-summary-detail Discount">
-            <h3>Discount</h3>
-            <span>-${discountPrice}</span>
-          </div>
-        </div>
-        <div className="bag-summary-lan"></div>
-        <div className="bag-summary-total">
-          <div className="total-detail">
-            <h2>Total</h2>
-            <span>${totalPrice}</span>
-          </div>
-          <button className="checkout">Checkout →</button>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };
