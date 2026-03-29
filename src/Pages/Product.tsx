@@ -1,5 +1,5 @@
 import { useProducts } from "../Context/ProductContext";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 const Product = () => {
@@ -20,17 +20,17 @@ const Product = () => {
   if (!productList) return <div>Product is delivering</div>;
 
   // right and left btn fn
-  const rightBtn = useCallback(() => {
+  const rightBtn = () => {
     setCurrectIndex((prev) => {
       return prev < productList.length - 1 ? prev + 1 : prev;
     });
-  }, []);
+  };
 
-  const leftBtn = useCallback(() => {
+  const leftBtn = () => {
     setCurrectIndex((prev) => {
       return prev > 0 ? prev - 1 : 0;
     });
-  }, []);
+  };
 
   // cart's number setup fn
   const plusBtn = () => {
@@ -85,16 +85,31 @@ const Product = () => {
     <div className="product-container">
       <div className="product-gallery">
         <div className="product-image">
-          <button className="left-btn" onClick={leftBtn}>
-            {"<"}
-          </button>
-          <button className="right-btn" onClick={rightBtn}>
-            {">"}
-          </button>
-          <img
-            src={`${currentProduct.imageURL}`}
-            alt={`${currentProduct.title}`}
-          />
+          <div className="product-imageGroup">
+            <img
+              src={`${currentProduct.imageURL}`}
+              alt={`${currentProduct.title}`}
+            />
+            <button className="left-btn" onClick={leftBtn}>
+              {"<"}
+            </button>
+            <button className="right-btn" onClick={rightBtn}>
+              {">"}
+            </button>
+          </div>
+
+          <div className="product-btn">
+            <div className="rwd-more">
+              {/* 不需要 map 的第一個 element，所以使用 _ 代替 */}
+              {productList.map((_, index) => (
+                <span
+                  key={index}
+                  className={index === currentIndex ? "active" : ""}
+                  onClick={() => setCurrectIndex(index)}
+                ></span>
+              ))}
+            </div>
+          </div>
           <div className="more-picture">{morePicture}</div>
         </div>
         <div className="product-info">
