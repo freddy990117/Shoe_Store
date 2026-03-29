@@ -85,14 +85,20 @@ const Product = () => {
     <div className="product-container">
       <div className="product-gallery">
         <div className="product-image">
-          <img
-            src={`${currentProduct.imageURL}`}
-            alt={`${currentProduct.title}`}
-          />
-          <div className="product-btn">
+          <div className="product-imageGroup">
+            <img
+              src={`${currentProduct.imageURL}`}
+              alt={`${currentProduct.title}`}
+            />
             <button className="left-btn" onClick={leftBtn}>
               {"<"}
             </button>
+            <button className="right-btn" onClick={rightBtn}>
+              {">"}
+            </button>
+          </div>
+
+          <div className="product-btn">
             <div className="rwd-more">
               {/* 不需要 map 的第一個 element，所以使用 _ 代替 */}
               {productList.map((_, index) => (
@@ -103,9 +109,6 @@ const Product = () => {
                 ></span>
               ))}
             </div>
-            <button className="right-btn" onClick={rightBtn}>
-              {">"}
-            </button>
           </div>
           <div className="more-picture">{morePicture}</div>
         </div>
