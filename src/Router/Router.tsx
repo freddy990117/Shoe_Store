@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Page404 from "../Pages/Page404";
 import Homepage from "../Pages/Homepage";
 import Product from "../Pages/Product";
@@ -10,7 +10,7 @@ const Router = () => {
   return (
     <CartProvider>
       <ProductProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Homepage />} />
@@ -19,7 +19,7 @@ const Router = () => {
               <Route path="*" element={<Page404 />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </ProductProvider>
     </CartProvider>
   );
