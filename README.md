@@ -101,11 +101,8 @@ npm run dev
 
 ## 🔥 Future Improvements
 
-- 💾 localStorage（重新整理後商品不消失）
 - 🧾 Checkout Page
-- ❤️ Wishlist
-- 📱 Responsive Design
-
+- 🙋 Login Feature
 ---
 
 ## 👨‍💻 Author
