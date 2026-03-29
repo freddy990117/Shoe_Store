@@ -165,14 +165,6 @@
   text-align: center;
   margin-top: 49px;
 }
-.homepage-main .homepage-product .product-image {
-  flex: 1;
-}
-.homepage-main .homepage-product .product-image img {
-  /* gap: 53px; */
-  width: 490px;
-  height: 321px;
-}
 .homepage-main .homepage-more {
   width: 100%;
   max-width: 1116px;
@@ -249,9 +241,22 @@
   gap: 3px;
   /* main image */
 }
-.product-container .product-gallery .product-image img {
+.product-container .product-gallery .product-image .product-imageGroup {
+  position: relative;
+}
+.product-container .product-gallery .product-image .product-imageGroup img {
   width: 600px;
   height: 600px;
+}
+.product-container .product-gallery .product-image .product-imageGroup button {
+  position: absolute;
+  top: 90%;
+}
+.product-container .product-gallery .product-image .product-imageGroup .left-btn {
+  right: 10%;
+}
+.product-container .product-gallery .product-image .product-imageGroup .right-btn {
+  right: 2%;
 }
 .product-container .product-gallery .product-image .more-picture {
   display: flex;
@@ -685,10 +690,24 @@ button {
   }
   .product-container .product-gallery {
     padding: 0;
+    max-width: 390px;
   }
   .product-container .product-gallery .product-image {
     display: flex;
+    width: 100%;
     flex-direction: column;
+    align-items: center;
+  }
+  .product-container .product-gallery .product-image .product-imageGroup img {
+    min-width: 390px;
+    width: 100%;
+    height: 100%;
+  }
+  .product-container .product-gallery .product-image .product-imageGroup button {
+    top: 100%;
+  }
+  .product-container .product-gallery .product-image .product-imageGroup .left-btn {
+    left: 0;
   }
   .product-container .product-gallery .product-image .product-btn {
     width: 100%;
@@ -696,12 +715,8 @@ button {
     justify-content: space-between;
     align-items: center;
   }
-  .product-container .product-gallery .product-image .product-btn button {
-    position: relative;
-    right: 0;
-  }
   .product-container .product-gallery .product-image .product-btn .rwd-more {
-    width: 80%;
+    width: 100%;
     height: 20px;
     display: flex;
     align-items: center;
