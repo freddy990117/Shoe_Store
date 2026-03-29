@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useCart } from "../Context/CartContext";
 
 const Bag = () => {
@@ -44,7 +45,10 @@ const Bag = () => {
       </div>
     );
   });
-
+  // 當 cart 改變時，將資料存入進 localStorage
+  useEffect(() => {
+    return localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
   return (
     <div className="bag-container">
       {cart.length === 0 ? (
