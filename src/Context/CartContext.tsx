@@ -33,7 +33,15 @@ const CartContext = createContext<CartContextType | null>(null);
 // children: React.ReactNode 代表「所有可以被 React render 的東西」
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   // cart 會裝很多個符合 allCartItem 資料型態的 array，所以需要加上 []
-  const [cart, setCart] = useState<allCartItem[]>([]);
+  const [cart, setCart] = useState<allCartItem[]>(() => {
+    // 讀取 localStorage 的資料
+    try {
+      const storedData = localStorage.getItem("cart");
+      return storedData ? JSON.parse(storedData) : [];
+    } catch {
+      return [];
+    }
+  });
   // 建立一個回傳值 product 內容中要符合 allCartItem
   const addToCart = (product: allCartItem) => {
     setCart((prev) => {
