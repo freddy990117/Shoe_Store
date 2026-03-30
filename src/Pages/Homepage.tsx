@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useProducts } from "../Context/ProductContext";
 import { useSlide } from "../Hooks/useSlide";
+import homepageImage from "/public/images/picture-10.svg";
 const Homepage = () => {
   // import useProduct and use.
   const productList = useProducts();
@@ -18,7 +19,7 @@ const Homepage = () => {
             </Link>
           </div>
           <div className="product-image">
-            <img src="/images/picture-10.svg" alt="shoes picture" />
+            <img src={homepageImage} alt="shoes picture" />
           </div>
         </div>
         <div className="homepage-more">

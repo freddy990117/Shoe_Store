@@ -5,12 +5,14 @@ import {
   faGithub,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import icon from "/public/icons/icon.png";
+
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-item">
         <div className="footer-logo">
-          <img src="/icons/icon.png" alt="logo" />
+          <img src={icon} alt="logo" />
           <a href="/">
             <h1> SUN CO.</h1>
           </a>

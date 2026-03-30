@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useCart } from "../Context/CartContext";
-
+import empty from "/public/images/empty_bag.png";
 const Bag = () => {
   const {
     cart,
@@ -52,11 +52,7 @@ const Bag = () => {
   return (
     <div className="bag-container">
       {cart.length === 0 ? (
-        <img
-          src="/public/images/empty_bag.png"
-          alt="empty bag"
-          className="empty-image"
-        />
+        <img src={empty} alt="empty bag" className="empty-image" />
       ) : (
         <>
           <div className="shoe-bag">

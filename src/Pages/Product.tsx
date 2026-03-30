@@ -2,6 +2,7 @@ import { useProducts } from "../Context/ProductContext";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+
 const Product = () => {
   // import props
   const productList = useProducts();
