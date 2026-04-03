@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useCart } from "../Context/CartContext";
 import empty from "/public/images/empty_bag.png";
+import { useAdmin, type Order } from "../Context/AdminContext";
 const Bag = () => {
+  const { addOrder } = useAdmin();
   const {
     cart,
     plusBtn,
@@ -12,6 +14,7 @@ const Bag = () => {
     discountPrice,
     totalPrice,
     finalTax,
+    clearCart,
   } = useCart();
   const cartItem = cart.map((product) => {
     return (
@@ -45,10 +48,32 @@ const Bag = () => {
       </div>
     );
   });
+
   // 當 cart 改變時，將資料存入進 localStorage
   useEffect(() => {
     return localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+  const handleCheckout = () => {
+    if (cart.length === 0) return alert("購物車沒東西喔！");
+
+    // 1. 建立訂單物件
+    const newOrder: Order = {
+      id: `ORDER-${Date.now()}`,
+      items: [...cart], // 複製一份目前的購物車
+      total: totalPrice,
+      status: "待出貨",
+      createdAt: new Date().toLocaleString(),
+    };
+
+    // 2. 存入後台 (AdminContext)
+    addOrder(newOrder);
+
+    console.log(newOrder);
+    // 3. 清空前台購物車 (CartContext)
+    clearCart();
+
+    alert("訂單已送出囉(・∀・)つ⑩！。");
+  };
   return (
     <div className="bag-container">
       {cart.length === 0 ? (
@@ -85,7 +110,9 @@ const Bag = () => {
                 <h2>Total</h2>
                 <span>${totalPrice}</span>
               </div>
-              <button className="checkout">Checkout →</button>
+              <button className="checkout" onClick={handleCheckout}>
+                Checkout →
+              </button>
             </div>
           </div>
         </>
