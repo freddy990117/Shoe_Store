@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 // 定義型別： Cart 會需要用到的東西
-interface allCartItem {
+export interface allCartItem {
   id: number;
   shoes: string;
   catalog: string;
@@ -25,6 +25,7 @@ interface CartContextType {
   taxPrice: number;
   totalPrice: number;
   finalTax: number;
+  clearCart: () => void;
 }
 
 // !根據 CartContextType 或是 null 建立通道,一開始的資料型態是 null，所以需要加上 null
@@ -109,6 +110,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const totalPrice: number = shipPrice + discountPrice + taxPrice;
   const finalTax: number = totalPrice >= 5000 ? 0 : taxPrice;
 
+  // 將資料清空
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart"); // 清除 localStorage
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -123,9 +130,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         taxPrice,
         totalPrice,
         finalTax,
+        clearCart,
       }}
     >
-      {children}
+      ∫{children}
     </CartContext.Provider>
   );
 };
